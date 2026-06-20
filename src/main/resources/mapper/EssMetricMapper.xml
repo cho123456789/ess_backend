@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.mapper.EssMetricMapper">
+
+    <insert id="insertMetric" parameterType="org.example.dto.EssMetricDto">
+        INSERT INTO ess_metrics (ess_id, rack_id, soc, power_kw, temperature, created_at)
+        VALUES (#{essId}, #{rackId}, #{soc}, #{powerKw}, #{temperature}, #{createdAt})
+    </insert>
+
+    <select id="selectRecentMetrics" resultType="org.example.dto.EssMetricDto">
+        SELECT
+        id,
+        ess_id AS essId,
+        rack_id AS rackId,
+        soc,
+        power_kw AS powerKw,
+        temperature,
+        created_at AS createdAt
+        FROM ess_metrics
+        WHERE ess_id = #{essId}
+        ORDER BY created_at DESC
+        LIMIT #{limit}
+    </select>
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.mapper.SunriseSunsetMapper">
+
+    <select id="selectSunriseSunset" resultType="org.example.dto.SunriseSunsetDto">
+        SELECT
+        target_date AS targetDate,
+        location,
+        sunrise,
+        sunset,
+        latitude,
+        longitude
+        FROM sunrise_sunset
+        WHERE target_date = #{date}
+        AND location = #{location}
+    </select>
+
+</mapper>

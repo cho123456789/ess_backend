@@ -4,11 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.example.Entity.SunriseSunset;
 import org.example.dto.SunRiseSetResponse;
 import org.example.repository.SunriseSunsetRepository;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.net.URLEncoder; // 🔴 추가됨
